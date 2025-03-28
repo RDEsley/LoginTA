@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import model.Usuario;
+
 public class SegundaActivity extends AppCompatActivity {
      TextView tvLogin, tvSenha;
 
@@ -24,12 +26,14 @@ public class SegundaActivity extends AppCompatActivity {
         tvSenha = (TextView) findViewById(R.id.lblSenha);
 
         Bundle dados = getIntent().getExtras();
-        String loginUsuario, senhaUsuario;
-        loginUsuario = dados.getString("LOGIN");
-        senhaUsuario = dados.getString("SENHA");
+        //String loginUsuario, senhaUsuario;
+        //loginUsuario = dados.getString("LOGIN");
+        //senhaUsuario = dados.getString("SENHA");
 
-        tvSenha.setText(senhaUsuario);
-        tvLogin.setText(loginUsuario);
+        Usuario usuario = (Usuario) dados.getSerializable("nomeObjeto");
+
+        tvSenha.setText(usuario.getLogin());
+        tvLogin.setText(usuario.getSenha());
 
     }
 }

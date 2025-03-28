@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import model.Usuario;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText edtLogin, edtSenha;
@@ -32,8 +34,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intencao = new Intent(MainActivity.this, SegundaActivity.class);
-                intencao.putExtra("LOGIN", edtLogin.getText().toString());
-                intencao.putExtra("SENHA", edtSenha.getText().toString());
+
+                //intencao.putExtra("LOGIN", edtLogin.getText().toString());
+                //intencao.putExtra("SENHA", edtSenha.getText().toString());
+
+                Usuario usuario = new Usuario();
+                usuario.setLogin(edtLogin.getText().toString());
+                usuario.setSenha(edtSenha.getText().toString());
+                intencao.putExtra("nomeObjeto", usuario);
 
                 startActivity(intencao);
             }
